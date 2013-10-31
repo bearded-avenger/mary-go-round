@@ -11,5 +11,5 @@ Creates responsive carousels usable anywhere with accompanying shortcode.
 
 == Changelog ==
 
-= 0.1 =
-* do beta
+= 1.0 =
+* initial release
