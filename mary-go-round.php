@@ -23,7 +23,7 @@ class baMaryGoRound {
         include('updater.php');
 
         // hide acf UI
-      	//define( 'ACF_LITE' , true );
+      	define( 'ACF_LITE' , true );
 
       	// load acf
         if( !class_exists( 'Acf' ) ) {
