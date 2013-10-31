@@ -65,11 +65,11 @@ class baMaryGoRoundSC {
 		$out = sprintf('<div id="mgr-carousel-%s" class="mgr-carousel">', $hash);
 
 		$images = get_field('mgr_gallery', $atts['id']);
-		 
+
 		if( $images ):
 
             foreach( $images as $image ):
-                $out .= sprintf('<img src="%s" alt="" />',$image['url']);
+                $out .= sprintf('<img src="%s" alt="%s" />',$image['url'],$image['alt']);
           	 endforeach;
 
 		endif;
