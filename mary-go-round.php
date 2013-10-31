@@ -59,7 +59,7 @@ class baMaryGoRound {
 	function scripts(){
 		wp_enqueue_script('jquery');
 
-		wp_register_style( 'mgr-style',   $this->url.'/libs/carousel/mgr.carousel.css', self::version, true);
+		wp_register_style( 'mgr-style',   $this->url.'/libs/carousel/mgr.carousel.min.css', self::version, true);
 		wp_register_script('mgr-script',  $this->url.'/libs/carousel/mgr.carousel.min.js', array('jquery'), self::version, true);
 
 		// colorbox

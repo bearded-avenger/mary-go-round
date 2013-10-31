@@ -28,7 +28,7 @@ class baMaryGoRoundSC {
 			'imgsize'			=> 'medium',
 			'captions'			=> 'false',
 			'linksnewwindow'	=> '',
-			'lightbox'			=> 'false',
+			'lightbox'			=> '',
 			'autoplay'			=> 'false',
 			'autoheight'		=> 'false',
 			'navigation' 		=> 'false',
@@ -47,7 +47,7 @@ class baMaryGoRoundSC {
         wp_enqueue_style('mgr-style');
 
         // LB scripts on demand
-        if(true == $atts['lightbox']){
+        if($atts['lightbox']){
         	wp_enqueue_script('mgr-lb-script');
         	wp_enqueue_style('mgr-lb-style');
         }
@@ -73,7 +73,7 @@ class baMaryGoRoundSC {
 					    itemsMobile: [<?php echo $atts['itemsmobile'];?>]
 					    <?php } ?>
 					});
-					<?php if(true == $atts['lightbox']) { ?>
+					<?php if($atts['lightbox']) { ?>
 						jQuery('.mgr-group-<?php echo $hash;?>').colorbox({
 							rel:'mgr-group',
 							onClickNext: false,
@@ -120,7 +120,7 @@ class baMaryGoRoundSC {
 
 	            	$caption = $getcap ? sprintf('<div class="mgr-caption">%s</div>', $getcap) : false;
 
-	            	if (true == $atts['lightbox']){
+	            	if ($atts['lightbox']){
 
 		            	$theimage = sprintf('<a class="mgr-group-%s" rel="mgr-group" href="%s" target="%s">%s<img src="%s" alt="%s" /></a>',$hash,$getlbimg,$target,$caption,$getimg,$getalt);
 
