@@ -17,9 +17,10 @@ class baMaryGoRound {
         $this->dir  = plugin_dir_path( __FILE__ );
         $this->url  = plugins_url( '', __FILE__ );
 
-        include($this->dir.'type.php');
-        include($this->dir.'shortcode.php');
-        include($this->dir.'columns.php');
+        include('type.php');
+        include('shortcode.php');
+        include('columns.php');
+        include('updater.php');
 
         // hide acf UI
       	//define( 'ACF_LITE' , true );
@@ -34,8 +35,14 @@ class baMaryGoRound {
 			include_once('libs/acf-gallery/acf-gallery.php');
 		}
 
+		// Load Updater
+		if( !class_exists( 'EDD_SL_Plugin_Updater' ) ) {
+			// load our custom updater
+			include( 'EDD_SL_Plugin_Updater.php' );
+		}
+
 		// register ACF fields
-		include($this->dir.'acf-register.php');
+		include('acf-register.php');
 
 		// start the show
         $this->init();
