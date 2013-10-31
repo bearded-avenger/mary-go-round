@@ -46,8 +46,7 @@ class baMaryGoRound {
 		add_action('wp_enqueue_scripts',array($this,'scripts'));
 
 		// only load the less file if we're in dms
-		if(function_exists('pl_has_editor'))
-			add_action( 'template_redirect', array($this, 'dms_less' ));
+		add_action( 'template_redirect', array($this, 'dms_less' ));
 	}
 
 	function scripts(){
@@ -59,7 +58,7 @@ class baMaryGoRound {
 	// run dms less file
 	function dms_less() {
 		$file = sprintf( '%sstyle.less', $this->dir );
-		if(function_exists('pagelines_insert_core_less'))
+		if(function_exists('pagelines_insert_core_less') && function_exists('pl_has_editor'))
 			pagelines_insert_core_less( $file );
 	}
 

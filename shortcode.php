@@ -38,12 +38,7 @@ class baMaryGoRoundSC {
 		$atts = shortcode_atts($defaults, $atts);
 		
 		wp_enqueue_script('mgr-script');
-
-        // dont load the style in pagelines it uses less
-        if(!function_exists('pl_has_editor')) {
-            wp_enqueue_style('mgr-style');
-        }
-
+        wp_enqueue_style('mgr-style');
 
 		?>
 			<!-- Mary Go Round Instantiation- by @nphaskins -->
