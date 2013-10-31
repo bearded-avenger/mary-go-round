@@ -20,7 +20,7 @@ class baMaryGoRound {
         include($this->dir.'type.php');
         include($this->dir.'shortcode.php');
 
-      	//define( 'ACF_LITE' , true );
+      	define( 'ACF_LITE' , true );
 
         if( !class_exists( 'Acf' ) ) {
 			include_once('libs/advanced-custom-fields/acf.php' );
