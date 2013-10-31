@@ -25,7 +25,7 @@ class baMaryGoRoundSC {
 			'autoplay'			=> 'false',
 			'navigation' 		=> 'false',
 			'pagination'		=> 'true',
-			'singleItem'		=> 'false',
+			'singleitem'		=> 'false',
 			'itemsDesktop'		=> '1199,3',
 			'itemsDesktopSmall'	=> '979,3',
 			'itemsTablet'		=> '768,2',
@@ -46,12 +46,12 @@ class baMaryGoRoundSC {
 					jQuery("#mgr-carousel-<?php echo $hash;?>").owlCarousel({
 						baseClass: 'mgr-carousel',
 					    items: <?php echo $atts['items'];?>,
-					    singleItem: <?php echo $atts['singleItem'];?>,
+					    singleItem: <?php echo $atts['singleitem'];?>,
 					    slideSpeed: <?php echo $atts['slideSpeed'];?>,
 					    autoPlay: <?php echo $atts['autoplay'];?>,
 					    navigation: <?php echo $atts['navigation'];?>,
 					    pagination: <?php echo $atts['pagination'];?>,
-					    <?php if(!$atts['singleItem']) { ?>
+					    <?php if(!$atts['singleitem']) { ?>
 					    itemsDesktop: [<?php echo $atts['itemsDesktop'];?>],
 					    itemsDesktopSmall: [<?php echo $atts['itemsDesktopSmall'];?>],
 					    itemsTablet: [<?php echo $atts['itemsTablet'];?>],
