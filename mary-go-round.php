@@ -19,23 +19,25 @@ class baMaryGoRound {
 
         include($this->dir.'type.php');
         include($this->dir.'shortcode.php');
+        include($this->dir.'columns.php');
 
+        // hide acf UI
       	define( 'ACF_LITE' , true );
 
+      	// load acf
         if( !class_exists( 'Acf' ) ) {
 			include_once('libs/advanced-custom-fields/acf.php' );
 		}
 
+		// load acf gallery
 		if( !class_exists( 'acf_field_gallery' ) ){
 			include_once('libs/acf-gallery/acf-gallery.php');
 		}
 
+		// register ACF fields
 		include($this->dir.'acf-register.php');
 
-
-		// acf stuff
-
-
+		// start the show
         $this->init();
 
 	}
