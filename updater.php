@@ -2,7 +2,7 @@
 
 class mgrUpdater {
 
-	const version = '0.9.2';
+	const version = '0.9.3';
 
 	function __construct(){
 
