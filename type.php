@@ -16,6 +16,10 @@ class baMaryGoRoundPostType {
 
        	add_action('init',array($this,'do_type'));
        	add_action( 'init', array($this,'do_taxo'), 0 );
+
+       	$this->dir  = plugin_dir_path( __FILE__ );
+        $this->url  = plugins_url( '', __FILE__ );
+
 	}
 
 	function do_type() {
@@ -38,6 +42,7 @@ class baMaryGoRoundPostType {
 		$args = array(
 			'label'               => __( 'Mary Go Round', 'mary-go-round' ),
 			'description'         => __( 'Create responsive carousels', 'mary-go-round' ),
+			'menu_icon' 		  => $this->url.'/icon.png',  // Icon Path
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'thumbnail' ),
 			'taxonomies'          => array( 'category' ),
