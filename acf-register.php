@@ -40,7 +40,7 @@ if(function_exists("register_field_group")){
 	margin - space between items. enter a value like <code>4px</code> or <code>2%</code>
 	imgsize - specify image size. acceptable values include <code>thumbnail</code>, <code>medium</code>, <code>large</code>
 	linksnewwindow - use the description area for the imaage link, and set this to true to open links in a new window
-	lightbox - enable optional lightbox - true or false
+	lightbox - use <code>lightbox="true"</code> to enable lightbox
 	autoplay - true or false
 	autoheight - helps when using images with different heights
 	navigation - true or false
