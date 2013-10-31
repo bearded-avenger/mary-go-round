@@ -19,6 +19,7 @@ class baMaryGoRoundSC {
 
 		// sc defaults
 		$defaults = array(
+			'id'				=> '',
 			'items'				=> 4,
 			'slideSpeed' 		=> 200,
 			'autoplay'			=> 'false',
@@ -63,23 +64,15 @@ class baMaryGoRoundSC {
 
 		$out = sprintf('<div id="mgr-carousel-%s" class="mgr-carousel">', $hash);
 
-			$query = new WP_Query( array( 'post_type' => 'mary_go_round', 'posts_per_page' => -1 ) );
+		$images = get_field('mgr_gallery', $atts['id']);
+		 
+		if( $images ):
 
-			if( $query->have_posts() ){
-			    while($query->have_posts()){
-			        $query->the_post();
-			        $image_query = new WP_Query( array( 'post_type' => 'attachment', 'post_status' => 'inherit', 'post_mime_type' => 'image', 'posts_per_page' => -1, 'post_parent' => get_the_ID(), 'order' => 'ASC', 'orderby' => 'name' ) );
-			        while( $image_query->have_posts() ) {
+            foreach( $images as $image ):
+                $out .= sprintf('<img src="%s" alt="" />',$image['url']);
+          	 endforeach;
 
-			            $image_query->the_post();
-
-			            $img = wp_get_attachment_image_src( get_the_ID(),'medium' );
-
-			            $out .= sprintf('<img src="%s" alt="">', $img[0]);
-					}
-
-			    }
-			}
+		endif;
 
 		$out .= sprintf('</div>');
 
