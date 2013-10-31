@@ -4,13 +4,13 @@ Author: Nick Haskins
 Author URI: http://nickhaskins.com
 Plugin Name: Mary Go Round by Bearded Avenger
 Plugin URI: http://nickhaskins.com
-Version: 0.1
+Version: 0.9
 Description: Responsive Wordpress carousel.
 */
 
 class baMaryGoRound {
 
-	const version = '0.1';
+	const version = '0.9';
 
 	function __construct() {
 
@@ -43,8 +43,8 @@ class baMaryGoRound {
 	}
 
 	function scripts(){
-		wp_register_style( 'mgr-style',   $this->url.'/libs/owl-carousel/owl.carousel.css', self::version, true);
-		wp_register_script('mgr-script',  $this->url.'/libs/owl-carousel/owl.carousel.min.js', array('jquery'), self::version, true);
+		wp_register_style( 'mgr-style',   $this->url.'/libs/carousel/mgr.carousel.min.css', self::version, true);
+		wp_register_script('mgr-script',  $this->url.'/libs/carousel/mgr.carousel.min.js', array('jquery'), self::version, true);
 	}
 
 	// run dms less file
