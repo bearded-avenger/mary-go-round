@@ -74,10 +74,14 @@ class baMaryGoRoundSC {
 					    <?php } ?>
 					});
 					<?php if(true == $atts['lightbox']) { ?>
-						jQuery('.mgr-group-<?php echo $hash;?>').colorbox({rel:'mgr-group'});
+						jQuery('.mgr-group-<?php echo $hash;?>').colorbox({
+							rel:'mgr-group',
+							onClickNext: false,
+						});
 					<?php } ?>
 
 				});
+
 			</script>
 
 			<!-- Margy Go Round Branding- by @nphaskins -->

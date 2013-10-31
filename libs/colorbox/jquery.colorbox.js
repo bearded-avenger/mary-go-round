@@ -55,6 +55,7 @@
 		slideshowStart: "start slideshow",
 		slideshowStop: "stop slideshow",
 		photoRegex: /\.(gif|png|jp(e|g|eg)|bmp|ico|webp)((#|\?).*)?$/i,
+		onClickNext: true,
 
 		// alternate image paths for high-res displays
 		retinaImage: false,
@@ -985,10 +986,12 @@
 				}
 				
 				if ($related[1] && (settings.loop || $related[index + 1])) {
-					photo.style.cursor = 'pointer';
-					photo.onclick = function () {
-						publicMethod.next();
-					};
+					//photo.style.cursor = 'pointer';
+					if(settings.onClickNext){
+						photo.onclick = function () {
+							publicMethod.next();
+						};
+					}
 				}
 
 				photo.style.width = photo.width + 'px';
