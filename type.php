@@ -15,7 +15,7 @@ class baMaryGoRoundPostType {
 	function __construct() {
 
        	add_action('init',array($this,'do_type'));
-
+       	add_action( 'init', array($this,'do_taxo'), 0 );
 	}
 
 	function do_type() {
@@ -40,7 +40,7 @@ class baMaryGoRoundPostType {
 			'description'         => __( 'Create responsive carousels', 'mary-go-round' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'thumbnail' ),
-			'taxonomies'          => array( 'category', 'post_tag' ),
+			'taxonomies'          => array( 'category' ),
 			'hierarchical'        => false,
 			'public'              => true,
 			'rewrite'             => false,
@@ -49,6 +49,35 @@ class baMaryGoRoundPostType {
 		register_post_type( 'mary_go_round', $args );
 
 	}
+	function do_taxo()  {
 
+		$labels = array(
+			'name'                       => _x( 'Categories', 'Taxonomy General Name', 'mary-go-round' ),
+			'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'mary-go-round' ),
+			'menu_name'                  => __( 'Category', 'mary-go-round' ),
+			'all_items'                  => __( 'All Categories', 'mary-go-round' ),
+			'parent_item'                => __( 'Parent Category', 'mary-go-round' ),
+			'parent_item_colon'          => __( 'Parent Category:', 'mary-go-round' ),
+			'new_item_name'              => __( 'New Category Name', 'mary-go-round' ),
+			'add_new_item'               => __( 'Add New Category', 'mary-go-round' ),
+			'edit_item'                  => __( 'Edit Category', 'mary-go-round' ),
+			'update_item'                => __( 'Update Category', 'mary-go-round' ),
+			'separate_items_with_commas' => __( 'Separate Categories with commas', 'mary-go-round' ),
+			'search_items'               => __( 'Search Categories', 'mary-go-round' ),
+			'add_or_remove_items'        => __( 'Add or remove categories', 'mary-go-round' ),
+			'choose_from_most_used'      => __( 'Choose from the most used categories', 'mary-go-round' ),
+		);
+		$args = array(
+			'labels'                     => $labels,
+			'hierarchical'               => true,
+			'public'                     => true,
+			'show_ui'                    => true,
+			'show_admin_column'          => true,
+			'show_in_nav_menus'          => false,
+			'show_tagcloud'              => false,
+		);
+		register_taxonomy( 'category', 'mary_go_round', $args );
+
+	}
 }
 new baMaryGoRoundPostType;
