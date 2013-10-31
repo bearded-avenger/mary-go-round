@@ -36,7 +36,6 @@ class baMaryGoRoundSC {
 			'itemsmobile'		=> '479,1'
 		);
 		$atts = shortcode_atts($defaults, $atts);
-
 		wp_enqueue_script('mgr-script');
 
 		// dont load the style in pagelines it uses less
