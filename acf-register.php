@@ -37,6 +37,9 @@ if(function_exists("register_field_group")){
 	color - specify a color for the prev/next buttons and nav circles. use a value like <code>#777</code>
 	items - items to show
 	slidespeed - speed of slideshow. enter a value like 200
+	margin - space between items. enter a value like <code>4px</code> or <code>2%</code>
+	captions - enable optional captions - true or false
+	lightbox - enable optional lightbox - true or false
 	autoplay - true or false
 	autoheight - helps when using images with different heights
 	navigation - true or false

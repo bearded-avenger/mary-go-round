@@ -24,6 +24,9 @@ class baMaryGoRoundSC {
 			'color'				=> '',
 			'items'				=> 4,
 			'slidespeed' 		=> 200,
+			'margin'			=> '',
+			'captions'			=> 'false',
+			'lightbox'			=> 'false',
 			'autoplay'			=> 'false',
 			'autoheight'		=> 'false',
 			'navigation' 		=> 'false',
@@ -36,7 +39,8 @@ class baMaryGoRoundSC {
 			'itemsmobile'		=> '479,1'
 		);
 		$atts = shortcode_atts($defaults, $atts);
-		
+
+		// Enqueue styles and scripts
 		wp_enqueue_script('mgr-script');
         wp_enqueue_style('mgr-style');
 
@@ -66,7 +70,7 @@ class baMaryGoRoundSC {
 			</script>
 
 			<!-- Margy Go Round Branding- by @nphaskins -->
-			<?php if ( $atts['brand'] || $atts['color'] ) { ?>
+			<?php if ( $atts['brand'] || $atts['color'] || $atts['margin'] ) { ?>
 				<style>
 					#mgr-carousel-<?php echo $hash;?> .owl-controls .owl-buttons div{
 						background: <?php echo $atts['brand'];?>;
@@ -75,21 +79,26 @@ class baMaryGoRoundSC {
 					#mgr-carousel-<?php echo $hash;?> .owl-controls .owl-page span{
 						background: <?php echo $atts['brand'];?>;
 					}
+					<?php if($atts['margin']) {?>
+					#mgr-carousel-<?php echo $hash;?> .owl-item .item{
+						margin: 0 <?php echo $atts['margin'];?>;
+					}
+					<?php } ?>
 				</style>
 			<?php }
 
 
 		$out = sprintf('<div id="mgr-carousel-%s" class="mgr-carousel">', $hash);
 
-		$images = get_field('mgr_gallery', $atts['id']);
+			$images = get_field('mgr_gallery', $atts['id']);
 
-		if( $images ):
+			if( $images ):
 
-            foreach( $images as $image ):
-                $out .= sprintf('<img src="%s" alt="%s" />',$image['url'],$image['alt']);
-          	 endforeach;
+	            foreach( $images as $image ):
+	                $out .= sprintf('<div class="item"><img src="%s" alt="%s" /></div>',$image['url'],$image['alt']);
+	          	 endforeach;
 
-		endif;
+			endif;
 
 		$out .= sprintf('</div>');
 
