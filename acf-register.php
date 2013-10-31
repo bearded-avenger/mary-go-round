@@ -38,6 +38,7 @@ if(function_exists("register_field_group")){
 	items - items to show
 	slidespeed - speed of slideshow. enter a value like 200
 	margin - space between items. enter a value like <code>4px</code> or <code>2%</code>
+	imgsize - specify image size. acceptable values include <code>thumbnail</code>, <code>medium</code>, <code>large</code>
 	captions - enable optional captions - true or false
 	linksnewwindow - use the description area for the imaage link, and set this to true to open links in a new window
 	lightbox - enable optional lightbox - true or false

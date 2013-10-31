@@ -25,6 +25,7 @@ class baMaryGoRoundSC {
 			'items'				=> 4,
 			'slidespeed' 		=> 200,
 			'margin'			=> '',
+			'imgsize'			=> 'medium',
 			'captions'			=> 'false',
 			'linksnewwindow'	=> '',
 			'lightbox'			=> 'false',
@@ -92,19 +93,23 @@ class baMaryGoRoundSC {
 		$out = sprintf('<div id="mgr-carousel-%s" class="mgr-carousel">', $hash);
 
 			$images = get_field('mgr_gallery', $atts['id']);
-
 			$target = $atts['linksnewwindow'] ? '_blank' : '_self';
 
 			if( $images ):
 
 	            foreach( $images as $image ):
 
-	            	if($image['description']){
-						$out .= sprintf('<div class="item"><a href="%s" target="%s"><img src="%s" alt="%s" /></a></div>',$image['description'],$target,$image['url'],$image['alt']);
-	            	} else {
-	                	$out .= sprintf('<div class="item"><img src="%s" alt="%s" /></div>',$image['url'],$image['alt']);
-	                }
-	          	 
+	            	$getlink 	= $image['description'];
+	            	$getimg		= $image['sizes'][$atts['imgsize']];
+	            	$getalt 	= $image['alt'];
+	            	$getcap 	= $image['caption'];
+
+	            	$theimage = ($image['description']) ?
+	            				sprintf('<a href="%s" target="%s"><img src="%s" alt="%s" /></a>',$getlink,$target,$getimg,$getalt) 
+	            				: sprintf('<img src="%s" alt="%s" />',$getimg,$getalt);
+
+	               	$out .= sprintf('<div class="item">%s</div>',$theimage);
+
 	          	 endforeach;
 
 			endif;
