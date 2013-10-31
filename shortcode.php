@@ -26,6 +26,7 @@ class baMaryGoRoundSC {
 			'slidespeed' 		=> 200,
 			'margin'			=> '',
 			'captions'			=> 'false',
+			'linksnewwindow'	=> '',
 			'lightbox'			=> 'false',
 			'autoplay'			=> 'false',
 			'autoheight'		=> 'false',
@@ -92,10 +93,18 @@ class baMaryGoRoundSC {
 
 			$images = get_field('mgr_gallery', $atts['id']);
 
+			$target = $atts['linksnewwindow'] ? '_blank' : '_self';
+
 			if( $images ):
 
 	            foreach( $images as $image ):
-	                $out .= sprintf('<div class="item"><img src="%s" alt="%s" /></div>',$image['url'],$image['alt']);
+
+	            	if($image['description']){
+						$out .= sprintf('<div class="item"><a href="%s" target="%s"><img src="%s" alt="%s" /></a></div>',$image['description'],$target,$image['url'],$image['alt']);
+	            	} else {
+	                	$out .= sprintf('<div class="item"><img src="%s" alt="%s" /></div>',$image['url'],$image['alt']);
+	                }
+	          	 
 	          	 endforeach;
 
 			endif;

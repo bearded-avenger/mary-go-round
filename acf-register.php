@@ -39,6 +39,7 @@ if(function_exists("register_field_group")){
 	slidespeed - speed of slideshow. enter a value like 200
 	margin - space between items. enter a value like <code>4px</code> or <code>2%</code>
 	captions - enable optional captions - true or false
+	linksnewwindow - use the description area for the imaage link, and set this to true to open links in a new window
 	lightbox - enable optional lightbox - true or false
 	autoplay - true or false
 	autoheight - helps when using images with different heights
