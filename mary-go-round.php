@@ -30,6 +30,12 @@ class baMaryGoRound {
 			include_once('libs/acf-gallery/acf-gallery.php');
 		}
 
+		include($this->dir.'acf-register.php');
+
+
+		// acf stuff
+
+
         $this->init();
 
 	}

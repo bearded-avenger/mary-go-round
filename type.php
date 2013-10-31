@@ -51,5 +51,4 @@ class baMaryGoRoundPostType {
 	}
 
 }
-new baMaryGoRoundPostType ;
-
+new baMaryGoRoundPostType;
