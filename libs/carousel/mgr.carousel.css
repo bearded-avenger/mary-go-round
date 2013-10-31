@@ -30,7 +30,10 @@
 .owl-item .item {
 	position: relative;
 }
-
+.owl-item .item a {
+	display: block;
+	outline:none;
+}
 .entry-content .owl-item img{
 	border-radius:0;
 	box-shadow: none;

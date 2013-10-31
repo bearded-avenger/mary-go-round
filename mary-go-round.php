@@ -58,8 +58,13 @@ class baMaryGoRound {
 
 	function scripts(){
 		wp_enqueue_script('jquery');
-		wp_register_style( 'mgr-style',   $this->url.'/libs/carousel/mgr.carousel.min.css', self::version, true);
+
+		wp_register_style( 'mgr-style',   $this->url.'/libs/carousel/mgr.carousel.css', self::version, true);
 		wp_register_script('mgr-script',  $this->url.'/libs/carousel/mgr.carousel.min.js', array('jquery'), self::version, true);
+
+		// colorbox
+		wp_register_style( 'mgr-lb-style',   $this->url.'/libs/colorbox/colorbox.css', self::version, true);
+		wp_register_script('mgr-lb-script',  $this->url.'/libs/colorbox/jquery.colorbox.js', array('jquery'), self::version, true);
 	}
 
 	// run dms less file

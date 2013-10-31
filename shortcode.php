@@ -46,11 +46,17 @@ class baMaryGoRoundSC {
 		wp_enqueue_script('mgr-script');
         wp_enqueue_style('mgr-style');
 
+        // LB scripts on demand
+        if(true == $atts['lightbox']){
+        	wp_enqueue_script('mgr-lb-script');
+        	wp_enqueue_style('mgr-lb-style');
+        }
+
 		?>
 			<!-- Mary Go Round Instantiation- by @nphaskins -->
 			<script>
 				jQuery(document).ready(function(){
-					jQuery("#mgr-carousel-<?php echo $hash;?>").owlCarousel({
+					jQuery('#mgr-carousel-<?php echo $hash;?>').owlCarousel({
 						baseClass: 'mgr-carousel',
 					    items: <?php echo $atts['items'];?>,
 					    singleItem: <?php echo $atts['singleitem'];?>,
@@ -67,6 +73,9 @@ class baMaryGoRoundSC {
 					    itemsMobile: [<?php echo $atts['itemsmobile'];?>]
 					    <?php } ?>
 					});
+					<?php if(true == $atts['lightbox']) { ?>
+						jQuery('.mgr-group-<?php echo $hash;?>').colorbox({rel:'mgr-group'});
+					<?php } ?>
 
 				});
 			</script>
@@ -95,20 +104,28 @@ class baMaryGoRoundSC {
 			$images = get_field('mgr_gallery', $atts['id']);
 			$target = $atts['linksnewwindow'] ? '_blank' : '_self';
 
-			if( $images ):
+			if ( $images ):
 
 	            foreach( $images as $image ):
 
 	            	$getlink  = $image['description'];
 	            	$getimg	  = $image['sizes'][$atts['imgsize']];
+	            	$getlbimg = $image['sizes']['large'];
 	            	$getalt   = $image['alt'];
 	            	$getcap   = $image['caption'];
 
 	            	$caption = $getcap ? sprintf('<div class="mgr-caption">%s</div>', $getcap) : false;
 
-	            	$theimage = ($image['description']) ?
-	            				sprintf('<a href="%s" target="%s">%s<img src="%s" alt="%s" /></a>',$getlink,$target,$caption,$getimg,$getalt) 
-	            				: sprintf('%s<img src="%s" alt="%s" />',$caption,$getimg,$getalt);
+	            	if (true == $atts['lightbox']){
+
+		            	$theimage = sprintf('<a class="mgr-group-%s" rel="mgr-group" href="%s" target="%s">%s<img src="%s" alt="%s" /></a>',$hash,$getlbimg,$target,$caption,$getimg,$getalt);
+
+		            } else {
+
+		            	$theimage = ($image['description']) ?
+		            				sprintf('<a href="%s" target="%s">%s<img src="%s" alt="%s" /></a>',$getlink,$target,$caption,$getimg,$getalt) 
+		            				: sprintf('%s<img src="%s" alt="%s" />',$caption,$getimg,$getalt);
+		            }
 
 	               	$out .= sprintf('<div class="item">%s</div>',$theimage);
 
