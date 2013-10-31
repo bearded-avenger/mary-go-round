@@ -99,14 +99,16 @@ class baMaryGoRoundSC {
 
 	            foreach( $images as $image ):
 
-	            	$getlink 	= $image['description'];
-	            	$getimg		= $image['sizes'][$atts['imgsize']];
-	            	$getalt 	= $image['alt'];
-	            	$getcap 	= $image['caption'];
+	            	$getlink  = $image['description'];
+	            	$getimg	  = $image['sizes'][$atts['imgsize']];
+	            	$getalt   = $image['alt'];
+	            	$getcap   = $image['caption'];
+
+	            	$caption = $getcap ? sprintf('<div class="mgr-caption">%s</div>', $getcap) : false;
 
 	            	$theimage = ($image['description']) ?
-	            				sprintf('<a href="%s" target="%s"><img src="%s" alt="%s" /></a>',$getlink,$target,$getimg,$getalt) 
-	            				: sprintf('<img src="%s" alt="%s" />',$getimg,$getalt);
+	            				sprintf('<a href="%s" target="%s">%s<img src="%s" alt="%s" /></a>',$getlink,$target,$caption,$getimg,$getalt) 
+	            				: sprintf('%s<img src="%s" alt="%s" />',$caption,$getimg,$getalt);
 
 	               	$out .= sprintf('<div class="item">%s</div>',$theimage);
 
