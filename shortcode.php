@@ -36,12 +36,10 @@ class baMaryGoRoundSC {
 			'itemsmobile'		=> '479,1'
 		);
 		$atts = shortcode_atts($defaults, $atts);
+		
 		wp_enqueue_script('mgr-script');
+		wp_enqueue_style('mgr-style');
 
-		// dont load the style in pagelines it uses less
-		if(!function_exists('pl_has_editor')) {
-			wp_enqueue_style('mgr-style');
-		}
 
 		?>
 			<!-- Mary Go Round Instantiation- by @nphaskins -->
