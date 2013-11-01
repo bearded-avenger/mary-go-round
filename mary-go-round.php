@@ -23,16 +23,17 @@ class baMaryGoRound {
         include('updater.php');
 
         // hide acf UI
-      	define( 'ACF_LITE' , true );
+      	if (!defined('ACF_LITE')) {
+      		define( 'ACF_LITE' , true );
+      	}
 
       	// load acf
         if( !class_exists( 'Acf' ) ) {
 			include_once('libs/advanced-custom-fields/acf.php' );
 		}
-
 		// load acf gallery
-		if( !class_exists( 'acf_field_gallery' ) ){
-			include_once('libs/acf-gallery/acf-gallery.php');
+		if( !function_exists( 'acfgp_register_fields' ) ){
+			include_once('libs/advanced-custom-fields/add-ons/acf-gallery/acf-gallery.php');
 		}
 
 		// Load Updater
