@@ -35,7 +35,6 @@ class baMaryGoRound {
 		if( !function_exists( 'acfgp_register_fields' ) ){
 			include_once('libs/advanced-custom-fields/add-ons/acf-gallery/acf-gallery.php');
 		}
-
 		// Load Updater
 		if( !class_exists( 'EDD_SL_Plugin_Updater' ) ) {
 			// load our custom updater
