@@ -102,8 +102,11 @@ class baMaryGoRoundSC {
 				</style>
 			<?php }
 
+		do_action('mgr_before');
 
 		$out = sprintf('<div id="mgr-carousel-%s" class="mgr-carousel">', $hash);
+
+			do_action('mgr_inside_top');
 
 			$images = get_field('mgr_gallery', $atts['id']);
 			$target = $atts['linksnewwindow'] ? '_blank' : '_self';
@@ -131,15 +134,19 @@ class baMaryGoRoundSC {
 		            				: sprintf('%s<img src="%s" alt="%s" />',$caption,$getimg,$getalt);
 		            }
 
-	               	$out .= sprintf('<div class="item">%s</div>',$theimage);
+	               	$out .= apply_filters('mgr_item_output',sprintf('<div class="item">%s</div>',$theimage));
 
 	          	 endforeach;
 
 			endif;
 
+			do_action('mgr_inside_bottom');
+
 		$out .= sprintf('</div>');
 
-		return $out;
+		do_action('mgr_after');
+
+		return apply_filters('mgr_output',$out);
 
 	}
 
