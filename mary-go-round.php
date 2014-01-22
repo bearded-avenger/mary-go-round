@@ -4,13 +4,13 @@ Author: Nick Haskins
 Author URI: http://nickhaskins.com
 Plugin Name: Mary Go Round by Bearded Avenger
 Plugin URI: http://nickhaskins.co/products/mary-go-round
-Version: 1.0.1
+Version: 1.0.2
 Description: Responsive Wordpress carousel shortcode with smart gallery builder
 */
 
 class baMaryGoRound {
 
-	const version = '1.0.1';
+	const version = '1.0.2';
 
 	function __construct() {
 

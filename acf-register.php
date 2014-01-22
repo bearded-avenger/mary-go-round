@@ -20,7 +20,7 @@ if(function_exists("register_field_group")){
 				'label' => 'Gallery Instructions',
 				'name' => '',
 				'type' => 'message',
-				'message' => '<h4>Instructions</h4>
+				'message' => '<h2>Instructions</h2>
 	1. Upload some images!
 	2. Publish the post
 	3. Take note of the post ID above in the browser address bar. It reads <code>post=53</code>.
@@ -28,10 +28,10 @@ if(function_exists("register_field_group")){
 	5. Use the shortcode on your site such as in posts or pages.
 	6. Extend the shortcode with any available shortcode attributes below.
 	
-	<h4>The Shortcode</h4>
+	<h2>The Shortcode</h2>
 	<code>[mary_go_round id=""]</code>
 	
-	<h4>Available Shortcode Attributes</h4>
+	<h2>Available Shortcode Attributes</h2>
 	id - carousel ID
 	brand - specify a background color for the prev/next buttons and nav circles. use a value like <code>#07a1cd</code>
 	color - specify a color for the prev/next buttons and nav circles. use a value like <code>#777</code>
@@ -50,7 +50,13 @@ if(function_exists("register_field_group")){
 	itemsdesktop - how many items to show at a specific resolution. enter a value like <code>1199,3</code> , which means, show 3 items on 1199px resolution and up.
 	itemsdesktopsmall - see above - default is <code>979,3</code>
 	itemstablet - see above - default is <code>768,2</code>
-	itemsmobile - see above - default is <code>479,1</code>',
+	itemsmobile - see above - default is <code>479,1</code>
+
+	<h2>Tips</h2>
+	<strong>How To Link Images to a Url</strong>
+	To link an image to an URL, just place the url in the description field.
+
+	',
 			),
 		),
 		'location' => array (
